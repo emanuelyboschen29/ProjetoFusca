@@ -5,85 +5,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Controle de Tempo</title>
+    <title>Projeto Fusca</title>
 </head>
 
 <body>
-    <div class="bloco">
-        <h1>Agora são exatamente:</h1>
-    <h2 id="relogio"></h2>
-    <h3>agora:</h3>
-    <h3 id="agora"></h3>
-    <script>
-        function atualizarRelogio() {
-            const agora = new Date();
-            const horas = agora.getHours().toString().padStart(2, '0'); //1:5:30 01:05:30
-            const minutos = agora.getMinutes().toString().padStart(2, '0');
-            const segundos = agora.getSeconds().toString().padStart(2, '0');
+    <header>
+        <h1>Landing Page Fusca 1979</h1>
+        <img src="img/fuscacapa.png" alt="fuscacapa">
+    </header>
+    <main>
 
-            document.getElementById("relogio").innerText = `${horas}:${minutos}:${segundos}`;
-            document.getElementById("agora").innerText = `${agora}`;
-        }
-        setInterval(atualizarRelogio, 1000);
-        atualizarRelogio();
-    </script>
-    <hr>
-    <h2 id="cronometro">00:00:00</h2>
-    <div>
-        <button onclick="iniciar()" id="btIniciar">Iniciar</button>
-        <button onclick="pausar()" id="btPausar">Pausar</button>
-        <button onclick="zerar()" id="btZerar">Zerar</button>
-    </div>
-    <script>
-        let segundos = 0;
-        let intervalo;
 
-        function formatarTime(segundos) {
-            const h = String(Math.floor(segundos / 3600)).padStart(2, '0');
-            const m = String(Math.floor((segundos % 3600) / 60)).padStart(2, '0');
-            const s = String(segundos % 60).padStart(2, '0');
-            return `${h}:${m}:${s}`;
-        }
+        <section>
 
-        function atualizarCronometro() {
-            document.getElementById("cronometro").innerText = formatarTime(segundos);
-        }
-        function iniciar() {
-            if (!intervalo) {
-                intervalo = setInterval(() => {
-                    segundos++; 
-                    atualizarCronometro();
-                }, 1000);
-                document.getElementById("btIniciar").innerText = "Iniciar";
-                document.getElementById("btIniciar").disabled = true;
-            }
-        }
-        function pausar() {
-            if (intervalo) {
-                clearInterval(intervalo);
-                intervalo = null;
-                document.getElementById("btPausar").innerText = "Retomar";
-                document.getElementById("btIniciar").disabled = true;
-            } else {
-                iniciar();
-                document.getElementById("btPausar").innerText = "Pausar";
-            }
+            <img src="img/fuscafrente.png" alt="fuscafrente">
+            <img src="img/fuscajato.png" alt="fuscajato">
+            <img src="img/fuscaviao.png" alt="fuscaviao">
+            <img src="img/fuscatraz.png" alt="fuscatraz">
 
-        }
-        function zerar() {
-            clearInterval(intervalo);
-            intervalo = null;
-            segundos = 0;
-            atualizarCronometro();
-            document.getElementById("btIniciar").innerText = "Iniciar";
-            document.getElementById("btPausar").innerText = "Pausar";
-            document.getElementById("btIniciar").disabled = false;
-        }
-
-    </script>
-    </div>
+        </section>
+        <div id="contador">Carregando...</div>
     
 
+
+    <section>
+        <h3>Texto 1 - Sobre o Fusca</h3>
+        <p>
+            O Fusca é muito mais que um carro. É uma memória afetiva sobre rodas, um símbolo da cultura automotiva
+            brasileira.
+            Em 1979, ele já era um fenômeno — agora, volta como ícone retrô que atravessa gerações com charme e
+            simplicidade.
+        </p>
+
+
+        <h3>Texto 2 - Caracteristicas principais do Fusca</h3>
+        <p>
+            Robustez, economia e mecânica confiável são marcas registradas do Fusca. Ele foi feito para durar, com peças
+            simples,
+            fácil manutenção e um motor que faz história. Compacto por fora, espaçoso por dentro — um verdadeiro
+            parceiro para todas as ocasiões.
+        </p>
+
+
+        <h3>Texto 3 - Fusca: parecido com um avião?</h3>
+        <p>
+            Se você já ouviu o ronco do motor do Fusca, sabe: ele lembra o som de um avião antigo.
+            Isso não é coincidência — o motor boxer refrigerado a ar tem herança aeronáutica.
+            Seu desempenho todo-terreno e estabilidade em qualquer tipo de solo fazem dele quase um jato sobre o
+            asfalto.
+        </p>
+
+        <h3>Texto 4 - Ficha Tecnica (Fusca 1979)</h3>
+        <ul>
+            <li><strong>Motor:</strong> 1.3 Boxer 4 cilindros, refrigerado a ar</li>
+            <li><strong>Potência:</strong> 46 cv</li>
+            <li><strong>Velocidade Máxima:</strong> 125 km/h</li>
+            <li><strong>Câmbio:</strong> Manual de 4 marchas</li>
+            <li><strong>Consumo médio:</strong> até 12 km/l</li>
+            <li><strong>Tração:</strong> Traseira</li>
+            <li><strong>Tração:</strong> 800 kg</li>
+        </ul>
+
+    </section>
+</body>
+</main>
+</html>
+<footer>
+    <!-- email, informações de contato -->
+</footer>
 </body>
 
 </html>
